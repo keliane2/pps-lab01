@@ -1,4 +1,10 @@
+<<<<<<< HEAD:basic-refactoring-exercise/src/test/java/it/unibo/pps/model/SimpleBankAccountTest.java
 package it.unibo.pps.model;
+=======
+import example.model.BankAccount;
+import example.model.AccountHolder;
+import example.model.SimpleBankAccount;
+>>>>>>> a8d7ad6 (Lab01 completato):basic-refactoring-exercise/src/test/java/SimpleBankAccountTest.java
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,12 +20,12 @@ class SimpleBankAccountTest {
     @BeforeEach
     void beforeEach(){
         accountHolder = new AccountHolder("Mario", "Rossi", 1);
-        bankAccount = new SimpleBankAccount(accountHolder, 0);
+        bankAccount = new SimpleBankAccount(accountHolder);
     }
 
     @Test
     void testInitialBalance() {
-        assertEquals(0, bankAccount.getBalance());
+        assertEquals(SimpleBankAccount.INITIAL_BALANCE, bankAccount.getBalance());
     }
 
     @Test

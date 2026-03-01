@@ -13,4 +13,28 @@ package it.unibo.pps.tdd;
  *   - Introduce methods in the interface in order to make the tests pass.
  *   - Refactor
  */
-public interface CircularQueue { }
+public interface CircularQueue {
+
+    /**
+     * Insert an element at the empty next position
+     * If the queue is full, the data insertion restart from the beginning
+     * */
+    void push(int i);
+
+    /**
+     * @return the oldest element of the queue
+     * */
+    int getFirstElement();
+
+    /**
+     * @return the size of the queue
+     * */
+    int getSize();
+
+    /**
+     * Removes the oldest element of the queue
+     * If the queue is empty, throws an exception
+     * @return the removed element
+     * */
+    int pop();
+}

@@ -9,10 +9,12 @@ public class SimpleBankAccount implements BankAccount {
 
     private double balance;
     private final AccountHolder holder;
+    public static final int INITIAL_BALANCE = 0;
+    public static final int MINIMUM_DEPOSIT = 0;
 
-    public SimpleBankAccount(final AccountHolder holder, final double balance) {
+    public SimpleBankAccount(final AccountHolder holder) {
         this.holder = holder;
-        this.balance = balance;
+        this.balance = INITIAL_BALANCE;
     }
 
     @Override
@@ -22,14 +24,14 @@ public class SimpleBankAccount implements BankAccount {
 
     @Override
     public void deposit(final int userID, final double amount) {
-        if (checkUser(userID)) {
-            this.balance += amount;
+        if (holder.checkUser(userID)) {
+            this.balance += Math.max(MINIMUM_DEPOSIT, amount);
         }
     }
 
     @Override
     public void withdraw(final int userID, final double amount) {
-        if (checkUser(userID) && isWithdrawAllowed(amount)) {
+        if (holder.checkUser(userID) && isWithdrawAllowed(amount)) {
             this.balance -= amount;
         }
     }
@@ -38,7 +40,4 @@ public class SimpleBankAccount implements BankAccount {
         return this.balance >= amount;
     }
 
-    private boolean checkUser(final int id) {
-        return this.holder.id() == id;
-    }
 }

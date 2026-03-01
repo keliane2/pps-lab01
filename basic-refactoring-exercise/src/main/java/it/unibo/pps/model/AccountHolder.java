@@ -6,4 +6,9 @@ package it.unibo.pps.model;
  * <p>
  * Each account holder has a name, a surname and an ID (unique in the bank system)
  */
-public record AccountHolder(String name, String surname, int id) { }
+public record AccountHolder(String name, String surname, int id){
+
+    public boolean checkUser(int id) {
+        return this.id == id;
+    }
+}
