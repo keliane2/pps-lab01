@@ -1,4 +1,4 @@
-package tdd;
+package it.unibo.pps.tdd;
 
 public class SmartDoorLockImpl implements SmartDoorLock{
 

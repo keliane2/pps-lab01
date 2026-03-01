@@ -1,9 +1,8 @@
-package tdd;
+package it.unibo.pps.tdd;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class MinMaxStackImpl implements MinMaxStack{
+public class MinMaxStackImpl implements MinMaxStack {
 
     private int max;
     private  int min;
